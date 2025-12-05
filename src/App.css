@@ -1,0 +1,12 @@
+@import "tailwindcss";
+@plugin "daisyui" {
+  themes: light --default;
+}
+html,body {
+  overflow-x: hidden;
+}
+a.active {
+  background-color: whitesmoke;
+ border-bottom: 2px solid rgb(19, 17, 17);
+ border-radius: 0px;
+}

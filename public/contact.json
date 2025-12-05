@@ -1,0 +1,41 @@
+{
+  "companyName": "MedBridge",
+  "tagline": "MedBridge-Better Care. Better Outcomes.",
+  "website": "https://www.medbridge.com",
+  "emails": {
+    "general": "hello@medbridge.com",
+    "support": "support@medbridge.com",
+    "sales": "sales@medbridge.com",
+    "billing": "billing@medbridge.com",
+    "partnerships": "partners@medbridge.com",
+    "press": "press@medbridge.com",
+    "careers": "careers@medbridge.com"
+  },
+  "phones": {
+    "main": "+1 (855) 633-2743",
+    "support": "+1 (855) 633-2743 ",
+    "emergency": "+1 (855) 633-2743 ",
+    "international": "+1 (206) 216-5000",
+    "fax": "+1 (206) 216-5001"
+  },
+  "address": {
+    "street": "1234 Healthcare Plaza, Suite 800",
+    "city": "Seattle",
+    "state": "WA",
+    "zip": "98101",
+    "country": "United States"
+  },
+  "social": {
+    "linkedin": "https://www.linkedin.com/company/medbridge",
+    "twitter": "https://twitter.com/medbridge_ed",
+    "facebook": "https://www.facebook.com/medbridgeeducation",
+    "instagram": "https://www.instagram.com/medbridge_education",
+    "youtube": "https://www.youtube.com/c/Med"
+  },
+  "officeHours": {
+    "weekday": "Monday – Friday: 6:00 AM – 6:00 PM PST",
+    "weekend": "Closed",
+    "timezone": "Pacific Time (PT)"
+  },
+  "emergencySupport": "24/7 technical support available for enterprise clients"
+}

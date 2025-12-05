@@ -1,0 +1,27 @@
+[
+  {
+    "id": 1,
+    "question": "What is useState and how does it work in React?",
+    "answer": "`useState` is a React Hook that allows you to add state to functional components. It returns an array with \n two elements: the current state value and a function to update it.\n\n```jsx\nconst [count, setCount] = useState(0);\n```\n- The argument passed to `useState` is the initial state (can be a value, object, array, etc.).\n- React preserves the state between re-renders.\n- Calling the setter function (`setCount`) triggers a re-render with the new state.\n- It supports functional updates: `setCount(prev => prev + 1)` – useful to avoid stale state in rapid updates.\n- State updates are asynchronous and batched for performance."
+  },
+  {
+    "id": 2,
+    "question": "What is the purpose of useEffect in React?",
+    "answer": "`useEffect` is a Hook that lets you perform side effects in functional components (data fetching, subscriptions, manual DOM mutations, etc.).\n\n```jsx\nuseEffect(() => {\n  // side effect code\n  return () => {\n    // cleanup (optional)\n  };\n}, [dependencies]);\n```\n- Runs after render (paint).\n- Dependency array controls when it runs:\n  - `[]` → only on mount/unmount\n  - `[dep1, dep2]` → when any dep changes\n  - no array → every render\n- Cleanup function runs before next effect or on unmount.\nCommon uses: API calls, event listeners, timers, manual DOM updates."
+  },
+  {
+    "id": 3,
+    "question": "What is a custom hook in React and when should you use one?",
+    "answer": "A custom hook is a JavaScript function that starts with `use` and calls other hooks inside it.\n It allows you to extract and reuse stateful logic across components.\n\nExample:\n```jsx\nfunction useLocalStorage(key, initialValue) {\n  const [value, setValue] = useState(() => {\n    return JSON.parse(localStorage.getItem(key)) || initialValue;\n  });\n\n  useEffect(() => {\n    localStorage.setItem(key, JSON.stringify(value));\n  }, [key, value]);\n\n  return [value, setValue];\n}\n```\nUse a custom hook when:\n- You have logic (state + effects) repeated in multiple components\n- You want to separate concerns (e.g., form handling, authentication, window size)\n- You want testable and reusable logic"
+  },
+  {
+    "id": 4,
+    "question": "Difference between controlled and uncontrolled components? Which one is better?",
+    "answer": "| Aspect                  | Controlled Components                     | Uncontrolled Components                  |\n|-------------------------|-------------------------------------------|------------------------------------------|\n| Value source            | React state (prop `value`)                | DOM itself (ref)                         |\n| Value handling       | onChange updates state → re-render        | Read value only when needed (e.g., on submit) |\n| Default value           | `value` prop                              | `defaultValue` prop                      |\n| Validation / formatting | Easy (in onChange)                        | Harder (need refs)                       |\n| Common use              | Forms with instant validation, dynamic inputs | Simple forms, file inputs, legacy integration |\n\n**Which is better?**\n→ **Controlled** is preferred in most modern React apps because it gives full control, easier validation, and works perfectly with hooks \n like `react-hook-form`, `Formik`, etc.\n→ **Uncontrolled** is acceptable for very simple forms or when integrating with non-React code."
+  },
+  {
+    "id": 5,
+    "question": "Tell us something about useFormStatus() (explore and explain)",
+    "answer": "`useFormStatus()` is an experimental React 19 (and React 18.3+ canary) hook that reads the status of the nearest parent \n `<form>` when using React Server Components and the new \"action\"-based form handling.\n\n```jsx\nimport { useFormStatus } from 'react-dom';\n\nfunction SubmitButton() {\n  const { pending, data, method, action } = useFormStatus();\n  return (\n    <button type=\"submit\" disabled={pending}>\n      {pending ? 'Submitting...' : 'Submit'}\n    </button>\n  );\n}\n```\nReturns:\n- `pending`: boolean – true while form is submitting\n- `data`: FormData of the current submission\n- `method`: 'get' or 'post'\n- `action`: the action function being called\n\nKey points:\n- Only works inside a component rendered inside a `<form>` that uses `action` (Server Actions or progressive enhancement)\n- Enables building loading states without lifting state up\n- Works seamlessly with React Server Components\n- As of Dec 2025, it's stable in React 19 and widely used in Next.js 15+ App Router projects."
+  }
+]
